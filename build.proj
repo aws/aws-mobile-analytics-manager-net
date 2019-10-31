@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="full-build" >
+
+    <Target Name="full-build" DependsOnTargets="build-all;package" />
+
+    <Target Name="build-all" DependsOnTargets="build-dotnet;build-pcl" />
+
+    <Target Name="package">
+        <Exec Command="nuget pack AWSSDK.MobileAnalytics.MobileAnalyticsManager.nuspec -OutputDirectory Publish" />
+    </Target>
+
+    <Target Name="build-dotnet">
+        <Exec Command="dotnet build AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net35.csproj --configuration Release" />
+        <Exec Command="dotnet build AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net45.csproj --configuration Release" />
+    </Target>
+
+    <Target Name="build-pcl">
+        <Exec Command="nuget restore AWSSDK.MobileAnalytics.MobileAnalyticsManager.PCL.csproj -PackagesDirectory packages" />
+        <Exec Command="msbuild AWSSDK.MobileAnalytics.MobileAnalyticsManager.PCL.csproj /p:Configuration=Release" />
+    </Target>
+
+</Project>
