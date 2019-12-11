@@ -7,4 +7,4 @@ sync that data with AWS.
 
 To build the repository into a NuGet package for distribution, run the *full-build* msbuild target.
 
-If you are looking for the Unity Mobile Analytics Manager, it is located in the "AWS SDK for .NET - Unity Archive."
+If you are looking for the Unity Mobile Analytics Manager, it is located in the Unity archive: https://github.com/aws/aws-sdk-unity-net
