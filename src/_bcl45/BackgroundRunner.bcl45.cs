@@ -1,3 +1,4 @@
+#if BCL45
 /*
  * Copyright 2015-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -13,15 +14,10 @@
  * permissions and limitations under the License.
  */
 
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using System;
-using Amazon.Runtime.Internal.Util;
 
-#if PCL || BCL45
 using System.Threading.Tasks;
-#endif
 
 namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
 {
@@ -31,37 +27,28 @@ namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
     /// </summary>
     public partial class BackgroundRunner
     {
-        private System.Threading.Thread _thread = null;
+        private int _startFlag = 0;
 
         /// <summary>
         /// Starts the Mobile Analytics Manager background thread.
         /// </summary>
         public void StartWork()
         {
-            lock (_lock)
+            // Start background task if it is not started yet.
+            if (0 == Interlocked.CompareExchange(ref _startFlag, 1, 0))
             {
-                if (!IsAlive())
-                {
-                    _thread = new System.Threading.Thread(DoWork);
-                    _thread.IsBackground = true;
-                    _thread.Start();
-                }
+                var task = DoWorkAsync(BackgroundSubmissionWaitTime * 1000);
             }
-
         }
 
-        private bool IsAlive()
-        {
-            return _thread != null && _thread.ThreadState != ThreadState.Stopped
-                                   && _thread.ThreadState != ThreadState.Aborted
-                                   && _thread.ThreadState != ThreadState.AbortRequested;
-        }
-
-
-        private void DoWork()
+        private async Task DoWorkAsync(int millisecondsDelay)
         {
             while (!ShouldStop)
             {
+                await Task.Delay(millisecondsDelay).ConfigureAwait(false);
+
+                if (ShouldStop) break;
+
                 try
                 {
                     _logger.InfoFormat("Mobile Analytics Manager is trying to deliver events in background thread.");
@@ -73,11 +60,12 @@ namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
                         try
                         {
                             manager = MobileAnalyticsManager.GetInstance(appId);
-                            manager.BackgroundDeliveryClient.AttemptDelivery();
+                            await manager.BackgroundDeliveryClient.AttemptDeliveryAsync().ConfigureAwait(false);
                         }
                         catch (System.Exception e)
                         {
-                            _logger.Error(e, "An exception occurred in Mobile Analytics Delivery Client.");
+                            _logger.Error(e, "An exception occurred in Mobile Analytics Delivery Client : {0}", e.ToString());
+
                             if (null != manager)
                             {
                                 MobileAnalyticsErrorEventArgs eventArgs = new MobileAnalyticsErrorEventArgs(this.GetType().Name, "An exception occurred when deliverying events to Amazon Mobile Analytics.", e, new List<Amazon.MobileAnalytics.Model.Event>());
@@ -85,14 +73,13 @@ namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
                             }
                         }
                     }
-                    Thread.Sleep(BackgroundSubmissionWaitTime * 1000);
                 }
                 catch (System.Exception e)
                 {
-                    _logger.Error(e, "An exception occurred in Mobile Analytics Manager.");
+                    _logger.Error(e, "An exception occurred in Mobile Analytics Manager : {0}", e.ToString());
                 }
             }
         }
     }
 }
-
+#endif
