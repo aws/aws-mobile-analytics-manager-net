@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", 
 		LICENSE = LICENSE
 		NOTICE = NOTICE
 		README.md = README.md
+		icon.png = icon.png
 	EndProjectSection
 EndProject
 Global
