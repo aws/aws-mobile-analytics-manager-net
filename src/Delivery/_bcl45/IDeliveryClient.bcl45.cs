@@ -1,3 +1,4 @@
+#if BCL45
 /*
  * Copyright 2015-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  * 
@@ -13,9 +14,6 @@
  * permissions and limitations under the License.
  */
 
-using System;
-using Amazon.MobileAnalytics.Model;
-
 namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
 {
     /// <summary>
@@ -29,4 +27,4 @@ namespace Amazon.MobileAnalytics.MobileAnalyticsManager.Internal
         System.Threading.Tasks.Task AttemptDeliveryAsync();
     }
 }
-
+#endif

@@ -38,5 +38,3 @@ generator/.vs/**
 **/*.partial.sln
 **/*.partial.FxCop
 **/*.partial.csproj
-
-Publish/

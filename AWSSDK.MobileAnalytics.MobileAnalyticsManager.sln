@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net35", "AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net35.csproj", "{8629EC2B-AB83-46BE-B5C1-82710707F87E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.MobileAnalytics.MobileAnalyticsManager", "src\AWSSDK.MobileAnalytics.MobileAnalyticsManager.csproj", "{40008F77-5DDB-4C02-AABB-A2D7D889E581}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net45", "AWSSDK.MobileAnalytics.MobileAnalyticsManager.Net45.csproj", "{85296744-456C-4157-B4FC-6E1B781BED62}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWSSDK.MobileAnalytics.MobileAnalyticsManager.PCL", "AWSSDK.MobileAnalytics.MobileAnalyticsManager.PCL.csproj", "{938F4E28-E150-46CF-B36D-BE43FE8D8C0B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{BF887686-F67E-4559-B477-50236A468DF8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		awssdk.dll.snk = awssdk.dll.snk
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE = LICENSE
+		NOTICE = NOTICE
+		README.md = README.md
+		icon.png = icon.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +23,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8629EC2B-AB83-46BE-B5C1-82710707F87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8629EC2B-AB83-46BE-B5C1-82710707F87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8629EC2B-AB83-46BE-B5C1-82710707F87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8629EC2B-AB83-46BE-B5C1-82710707F87E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85296744-456C-4157-B4FC-6E1B781BED62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85296744-456C-4157-B4FC-6E1B781BED62}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85296744-456C-4157-B4FC-6E1B781BED62}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85296744-456C-4157-B4FC-6E1B781BED62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{938F4E28-E150-46CF-B36D-BE43FE8D8C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{938F4E28-E150-46CF-B36D-BE43FE8D8C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{938F4E28-E150-46CF-B36D-BE43FE8D8C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{938F4E28-E150-46CF-B36D-BE43FE8D8C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40008F77-5DDB-4C02-AABB-A2D7D889E581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40008F77-5DDB-4C02-AABB-A2D7D889E581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40008F77-5DDB-4C02-AABB-A2D7D889E581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40008F77-5DDB-4C02-AABB-A2D7D889E581}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
