@@ -12,8 +12,7 @@
     <PackageTags>&gt;AWS;Amazon;cloud;CognitoSync;CognitoSyncManager;aws-sdk-v3</PackageTags>
     <PackageProjectUrl>https://github.com/aws/aws-mobile-analytics-manager-net</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <!-- Replace with PackageIcon when Visual Studio supports it. -->
-    <PackageIconUrl>https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png</PackageIconUrl>
+    <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/aws/aws-mobile-analytics-manager-net/</RepositoryUrl>
     <Company>Amazon Web Services</Company>
     <SignAssembly>true</SignAssembly>
