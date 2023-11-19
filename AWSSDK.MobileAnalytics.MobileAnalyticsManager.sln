@@ -8,7 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{BF887686-F67E-4559-B477-50236A468DF8}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		awssdk.dll.snk = awssdk.dll.snk
+		public.snk = public.snk
 		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE = LICENSE
